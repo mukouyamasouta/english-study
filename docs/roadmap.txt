@@ -1,0 +1,1485 @@
+TOEIC約400点から700点へ：週100分を軸にした78
+週間ロードマップ
+エグゼクティブサマリー
+結論から言うと、TOEIC約400点から700点を1年半で狙うなら、「毎日10分だけ＝週70分」はかなり厳し
+く、週100分でもストレッチ目標です。ただし、現在お持ちの「TOEIC過去テスト2回分・単語帳・Part 5問題
+集」を中心に、無料の公式教材とYouTubeを補助的に使い、間違いを分析して同じ素材を深く反復するな
+ら、週100分でも700点を狙う合理的なルートは作れます。
+
+
+一方、「1年半後の700点をかなり重要な目標にする」なら、私の推奨は平均150分/週です。100分を通常運
+転にし、進捗が遅れたときだけ150～180分へ増やす方法が、時間効率と達成可能性のバランスが最も良いと
+判断します。
+
+
+78週間での累積学習時間を計算すると次のようになります。
+
+
+     学習量      1日平均     78週間の総学習時間       本計画での位置づけ
+
+     70分/週      10分           91時間      最低ライン。700はかなりストレッチ
+
+     100分/週   14.3分          130時間      基本プラン。700を狙えるが余裕は小さい
+
+     150分/週   21.4分          195時間      700が重要なら推奨
+
+     180分/週    25.7分         234時間      停滞時の8週間ブースター
+
+     200分/週    28.6分         260時間      期限優先ならより安全側
+
+
+この判断には理由があります。Cambridge EnglishはCEFRを1段階上げるための目安として約200 guided
+learning hoursを提示しており、A2到達まで累計180～200時間、B1まで350～400時間程度という目安を示
+しています。ただし、これはTOEICの「何点上がるか」を示す研究ではなく、学習歴、強度、年齢、授業外の
+英語接触などで必要時間が変わるとCambridge自身が明記しています。したがって「200時間やれば必ず
+700」という意味ではありません。 1
+
+
+また、ETSの2025年版CEFR対応資料では、TOEIC L&RのB1最低目安はListening 275、Reading 275、B2は
+Listening 400、Reading 385です。したがって700点を仮にL350/R350程度で取る場合、「両技能ともB1域に
+十分入りつつ、B2にはまだ届かない」程度の受容技能が大まかなイメージになります。ただしETS自身が、こ
+のCEFR境界値は厳密な合否線として使うべきではないと注意しています。 2
+
+
+重要なのは、400→700は単に単語を300点分追加する作業ではないことです。IIBCの公式Score Descriptorを
+見ると、低いListening帯では「簡単な語彙」「答えが音声と同じ語で現れる」「情報が冒頭・末尾にある」
+ときに理解しやすい一方、275～370になると、言い換え、多少の間接表現、長めの発話の中心内容まで処理
+することが要求されます。 3 Readingでも同様に、点数が上がるほど単なるキーワード一致から、言い換
+え・推論・複数文の情報統合へ要求が移ります。          3
+
+
+
+
+したがって最適解は、
+
+
+
+
+                                    1
+単語暗記 → 問題を大量に解く
+
+
+ではなく、
+
+
+語彙・文法の自動化 → 聞こえない/読めない原因を特定 → 短い素材を精聴・精読 → 時間制限下で再実行 →
+間隔を空けて検索練習 → 徐々に長い英文へ
+
+
+という順序です。
+
+
+そして週100分なら、教材を増やしてはいけません。主教材は以下だけで十分です。
+
+
+過去テストA → 単語帳 → Part 5問題集 → IIBC公式無料問題・アプリ → VOA Learning English → 過去テス
+トB
+
+
+YouTubeは勉強法・TOEIC形式を理解するための補助教材に限定します。YouTubeを30分見て「勉強した気
+になる」のが、100分しかない場合には最大のロスです。
+
+
+最終的な時間配分は次を推奨します。
+
+
+             期間           Listening   Reading   語彙・文法   分析・復習
+
+             Week 1–13        40%        15%      35%     10%
+
+             Week 14–26       40%        25%      20%     15%
+
+             Week 27–39       35%        35%      15%     15%
+
+             Week 40–52       35%        40%      10%     15%
+
+             Week 53–65       35%        40%      10%     15%
+
+             Week 66–78       35%        45%       5%     15%
+
+Listeningを前半に厚くしつつ、後半はReadingの処理速度を重視します。TOEIC L&RはListening約45分100
+問、Reading75分100問で、Readingは自分で時間管理しなければならないからです。 4
+
+
+このレポートでの最終推奨を一文にすると、
+
+
+      週100分を絶対最低ラインとして78週間継続し、Week 26・39・52・65のKPIを2回連続で下
+      回った場合のみ150～180分/週へ8週間増量する。700点が「できれば」ではなく「必達」な
+      ら、最初から150分/週を選ぶ。
+
+
+です。
+
+
+現実的な時間と「400→700」のロジック
+現在の400点について最初に注意すべきなのは、Total 400だけでは英語力のボトルネックが分からないこと
+です。
+
+
+
+
+                                         2
+たとえば、
+
+
+   • L250 / R150
+   • L200 / R200
+   • L150 / R250
+
+はいずれも400点ですが、やるべきことはかなり違います。
+
+
+ETSのCEFR対応値もListeningとReadingを別々に設定しているため、TotalだけからCEFRを決めることはで
+きません。 2
+
+
+したがってWeek 1で最優先なのは、教材を始めることではなく、過去テストAでL/Rを分離して診断すること
+です。
+
+
+TOEIC公式テストは合計約2時間なので、初回だけは週100分を20分オーバーしてでも、できれば本番と同じ
+条件で行う価値があります。どうしても100分を超えられない場合はListening 45分とReading 75分を別日に
+実施し、少なくとも各Section内の時間制限は維持します。公式形式はListening約45分100問、Reading75分
+100問です。 4
+
+
+400点帯で起きている可能性が高い問題を、IIBC公式Score Descriptorから逆算すると次のように整理できま
+す。
+
+
+ 症状                    根本原因候補           700へ向けた対策
+
+ 音声を見れば分かるが聞くと分か                        部分ディクテーション＋音読＋シャ
+                       音→単語の変換が遅い
+ らない                                    ドーイング
+
+                       処理速度/チャンク化不
+ 単語は聞こえるが意味が残らない                        短い音声の意味理解→反復
+                       足
+
+ 選択肢と同じ単語を探してしまう       paraphrase耐性不足   言い換えペアを記録
+
+                       品詞・文構造の自動化
+ Part 5で毎回悩む                            Part 5を少量高速反復
+                       不足
+
+                       語彙＋構文＋探索速度
+ Part 7が時間切れ                            精読→時間制限→再読
+                       不足
+
+ 長文で何を読んだか忘れる          一文ごとの逐語訳         主題・目的・根拠を取る練習
+
+IIBCのListening Descriptorでは275～370点帯で、短い会話の中心内容、多少言い換えられた情報、簡単～中
+程度の語彙を含む詳細などが理解できる一方、難しい語彙、複雑な構文、離れた情報の統合などでは困難が
+残るとされています。 3
+
+
+Readingでは325～420点帯になると、主題・目的の推論、言い換えられた事実情報、近接する文間の情報接
+続、中程度の語彙や比較的難しい文法まで扱えるようになります。 3
+
+
+つまり700への本質的な移行は、
+
+
+      「知っている単語を探す」→「英語の意味を処理する」
+
+
+です。
+
+
+
+
+                                3
+ここから「なぜ10分/日だけでは苦しいのか」も分かります。
+
+
+10分×365日×1.5年 ≈ 91時間しかありません。
+
+
+一方、週100分なら130時間、週150分なら195時間です。
+
+
+Cambridgeの「CEFR一段階に約200 guided hours」という目安をTOEICへ直接換算することはできません
+が、91時間と195時間では学習量に2倍以上の差があります。 1 さらに400→700では、単語・文法だけでな
+く、Listeningの音声処理とReadingの速度まで変える必要があります。IIBC公式のスコア記述から見ても、こ
+れは単なる試験テクニックだけで吸収できる差ではありません。 3
+
+
+したがって、時間については次の意思決定が合理的です。
+
+
+        目標の重要度                  推奨
+
+        「700なら嬉しい。600台でも前進」     100分/週
+
+        「18か月で700を本気で取りたい」      150分/週
+
+        「期限が非常に重要」              150分を開始値にし、停滞時180～200分
+
+        「絶対に10分/日以上無理」          18か月に固定せず、2年以上も許容
+
+
+10分/日で100分/週プランと同じ130時間を確保するには約780日、つまり約111週間＝約2.1年かかります。
+これは「2.1年で700になる」という予測ではなく、単純に同じ学習量を積むまでの時間です。
+
+
+さらに150分/週プランの195時間を10分/日だけで確保するには約3.2年かかります。
+
+
+だからこそ、「毎日長時間」より、
+
+
+    平日は10分を守る
+    ＋土日に合計30～80分を足す
+
+
+という設計が最も現実的です。
+
+
+学習法の最適設計：Listening・Reading・語彙をどう回すか
+この計画の中心原理は、短時間だからこそ「入力時間」より「エラー修正回数」を最大化することです。
+
+
+記憶研究では、同じ内容を一度にまとめて繰り返すより、時間を空けて再学習するdistributed practiceの優
+位性が幅広い実験で確認されています。Cepedaらの大規模レビュー・定量的統合は、学習と保持の間隔が長
+期記憶に重要であることを示しています。 5
+
+
+さらにRoediger & Karpickeの実験では、単なる再読だけでなく、思い出そうとするテスト＝retrieval
+practiceそのものが長期保持を高めるtesting effectが示されています。 6
+
+
+したがって単語帳は「見る」のではなく、
+
+
+隠す → 思い出す → 答えを見る → 翌日/数日後にもう一度思い出す
+
+
+
+
+                               4
+にします。
+
+
+本計画では便宜上、
+
+
+Day 0 → 1 → 3 → 7 → 14 → 30
+
+
+で再テストします。この日程そのものが唯一科学的に正しいわけではなく、spacing researchを10分学習へ
+実装するための運用ルールです。 5
+
+
+10分セッションの基本形は、ほぼ全期間これで固定してください。
+
+
+                                    時間     行動
+
+                              0:00–1:00    前回内容を何も見ずに思い出す
+
+                              1:00–4:00    今日の問題・音声に初見で挑戦
+
+                              4:00–7:00    答え・transcript・根拠を確認
+
+                              7:00–9:00    同じ課題を再実行
+
+                             9:00–10:00    ミス原因を1行記録＋次回復習日
+
+これが、ただYouTubeを見る10分との最大の違いです。
+
+
+Listeningの10分は次の順序にします。
+
+
+             手順               目安      方法
+
+             First listen      1分     transcriptなし・原速で意味を取る
+
+             Second listen     1分     聞こえなかった位置を特定
+
+             Check             2分     transcriptと意味を確認
+
+             Diagnosis         1分     語彙/音/構文/記憶/言い換えのどこで失敗したか分類
+
+             Dictation         2分     聞き取れなかった5～15秒だけ書き取る
+
+             Shadowing         2分     意味が分かった状態で2～3回
+
+             Final listen      1分     transcriptなし・原速
+
+最初から全文ディクテーションをする必要はありません。10分しかないため、聞こえなかった場所だけ部分
+ディクテーションします。
+
+
+またシャドーイングを「音を真似すれば何となくリスニングが伸びる魔法」として扱わないことが重要で
+す。
+
+
+順序は、
+
+
+理解 → 音声確認 → 部分ディクテーション → 音読 → シャドーイング
+
+
+です。
+
+
+
+
+                                                5
+知らない単語だらけの音声を意味不明なままシャドーイングしても、少なくとも本計画が狙う「語彙・音・
+意味の結合」の練習としては非効率です。日本のEFL研究にもextensive readingとshadowingを組み合わせた
+研究系譜がありますが、spacing/retrievalほど一般化された強い証拠があるわけではないため、本計画では
+シャドーイングを主教材ではなく処理訓練に位置づけます。 7
+
+
+速度はこう上げます。
+
+
+            期間           速度
+
+            Week 1–8     First listenは1.0倍。難しい箇所の練習時のみ0.85～0.9倍可
+
+            Week 9–26    原則1.0倍
+
+            Week 27–52   1.0倍で一発理解を主目標
+
+            Week 53–78   テスト練習は必ず1.0倍。習熟素材のみ1.05～1.1倍可
+
+最初から1.5倍速にする必要はありません。 最終試験と同じ1.0倍で意味処理できることが先です。1.1倍は余
+力作りの補助であり、スコアKPIにはしません。
+
+
+難易度も徐々に上げます。
+
+
+VOA Learning Englishにはbeginning/intermediate向けの学習コンテンツや、Level 1・Level 2の台本付き
+レッスンがあります。たとえばLet's Learn Englishでは動画テキストや練習素材が用意されています。 8
+
+
+語彙の既知率とListening comprehensionの関係はvan Zeeland & SchmittのApplied Linguistics研究でも扱
+われており、知らない単語だらけの素材より、自分が大部分理解できる素材から段階を上げることには合理性
+があります。 9
+
+
+本計画での進級ルールは研究上の公式境界値ではなく、実務上の基準として、
+
+
+     初見・transcriptなしで大意を約80%取れる
+     ＋問題正答率80%前後
+
+
+になったら次の難易度へ移行します。
+
+
+Readingは精読と多読を混ぜます。
+
+
+前半は、
+
+
+     80% 精読・問題演習
+     20% 易しい英文の多読
+
+
+後半は、
+
+
+     60% TOEIC時間制限付き読解
+     20% 精読
+     20%多読
+
+
+くらいで十分です。
+
+
+
+
+                                       6
+Extensive Readingについては、NakanishiによるTESOL Quarterlyのメタ分析が複数の研究を統合していま
+す。ただし「多読をすればTOEICが何点上がる」と直接示す研究ではないので、多読だけを行う計画にはしま
+せん。易しい英文を量的に読むことで処理の自動化を補助し、TOEIC問題では精読と時間制限を別に行う設
+計にします。 10
+
+
+TOEIC Readingでは特に、
+
+
+skimming → scanning → evidence checking
+
+
+を区別します。
+
+
+skimmingでは、
+
+
+「これは何の文書か」「誰が誰に何をしているか」「目的は何か」
+
+
+だけを取ります。
+
+
+scanningでは、
+
+
+人名、日時、価格、場所、固有名詞、質問文の対象
+
+
+を高速に探します。
+
+
+しかし最後に必ずevidence checkingします。
+
+
+IIBCのReading Descriptorで低～中位帯の弱点として見えるのが、問題文と本文の「同じ単語」に頼りすぎる
+傾向だからです。高い帯になるほど言い換えや情報統合が必要になります。 3
+
+
+したがって、Part 7の復習時には毎回、
+
+
+      Questionの表現 → Passageの言い換え
+
+
+を1組だけ記録します。
+
+
+例：
+
+
+      purchase → buy
+      postpone → put off / reschedule
+      complimentary → free
+      available → in stock / can be used
+      due to → because of
+
+
+のように、単語単体ではなく言い換え・phrase単位で蓄積します。
+
+
+語彙も同じです。
+
+
+単語帳を、
+
+
+      appointment = 予約
+
+
+
+
+                                           7
+だけで覚えるより、
+
+
+      make an appointment
+      reschedule an appointment
+      confirm an appointment
+
+
+と覚えた方がListening・Reading・2年後のSpeakingへ再利用できます。
+
+
+「deliberate practice」の考え方もここに使います。Ericssonらの元来の議論を、「1万時間必要」という俗
+説としてではなく、今の弱点に狙いを定め、フィードバックを受け、修正して再実行するという練習設計と
+して採用します。原論文はEricsson, Krampe & Tesch-Römer, The Role of Deliberate Practice in the
+Acquisition of Expert Performanceです。(DOI)
+
+
+つまりあなたの場合、
+
+
+      100問解く
+
+
+より、
+
+
+      10問解く → 3問のミス原因を分類 → 翌日その3問を解く → 1週間後もう一度解く
+
+
+の方を優先します。
+
+
+週100分しかないからです。
+
+
+無料教材・YouTube・公式サイトの優先順位
+最大の原則は、「無料だからたくさん使う」のではなく、「目的別に1つだけ使う」です。
+
+
+以下の評価は一般的な教材ランキングではなく、「TOEIC400→700・週100分・既存教材あり」という今回
+の条件に対する適合度です。
+
+
+ 優                                  TOEICへの近                         この計画での評
+        教材                                       主用途
+ 先                                         さ                         価
+
+ S      手持ち過去テストA                    ★★★★★       診断・精聴・精読            主教材
+
+                                                                     Week 78まで封
+ S      手持ち過去テストB                    ★★★★★       最終測定
+                                                                     印
+
+ S      IIBC公式サンプル問題                 ★★★★★       公式形式                必須
+
+ S      手持ち単語帳                       ★★★★☆       語彙                  毎週使用
+
+ S      手持ちPart 5問題集                 ★★★★★       文法/高速処理             前半必須
+
+ A      TOEIC公式スマホアプリ                ★★★★☆       Listening/日常英語      補助主力
+
+ A      IIBC穴埋めエクササイズ                ★★★★☆       文法・語彙               週1
+
+                                                 段階的Listening/       Week 1–39に有
+ A      VOA Learning English         ★★★☆☆
+                                                 Reading             効
+
+
+
+
+                                         8
+ 優                                     TOEICへの近                    この計画での評
+      教材                                               主用途
+ 先                                            さ                    価
+
+      Morite2 TOEIC全パート完全攻
+ B                                         ★★★★☆       戦略理解        章ごとに見る
+      略
+
+ B    関正生 TOEIC学習法動画                       ★★★☆☆       文法/伸び悩み分析   必要時だけ
+
+      PIVOT TOEIC Listening/
+ B                                         ★★★☆☆       解法理解        初期に1回
+      Reading解説
+
+                                                                   Week 40以降少
+ C    一般英会話YouTube                         ★★☆☆☆       生英語・将来の会話
+                                                                   量
+
+IIBCの公式サンプル問題では実際にListening音声付きで問題形式を確認できます。TOEIC形式への適合度で
+は最優先です。 11
+
+
+IIBCの公式スマートフォンアプリには、現在、60本以上の音声＋テキストの英会話エピソードや毎朝更新ク
+イズを無料で使える学習コンテンツがあります。 12
+
+
+IIBCの穴埋めエクササイズは週1回配信され、文法・語彙問題と簡潔な解説を利用できます。10分学習との相
+性がかなり良い無料公式リソースです。 13
+
+
+YouTubeの最優先はMorite2の「TOEIC全パート完全攻略講座」です。無料で全パートの形式をまとめて確認
+できる長編動画ですが、3時間を一度に見る必要はありません。Part 2を勉強する週にはPart 2部分だけ、Part
+7に移る週にはPart 7部分だけを見る運用にします。 14
+
+
+関正生氏の動画には「TOEICのスコアが伸びない原因」「英文法の効率的な勉強法」など、学習設計を見直す
+用途の無料動画があります。 15
+
+
+PIVOTにはListening・Readingそれぞれについて、言い換え、解答根拠、消去法、時間配分などを扱うTOEIC
+対策動画があります。ただし、これも視聴そのものを学習の中心にしてはいけません。戦略を一度理解した
+ら、過去問で実行する方へ時間を移します。 16
+
+
+VOA Learning EnglishはTOEICそのものではありませんが、Level 1/2のような段階的な音声＋script教材があ
+るため、「TOEIC音声が難しすぎて復習の大半が日本語訳を見る時間になってしまう」400点前後では橋渡し
+教材として有効です。 8
+
+
+したがって教材の役割は次のように固定します。
+
+
+                         欲しい能力             原則これだけ
+
+                         TOEIC形式           過去テスト＋IIBC公式
+
+                         単語                手持ち単語帳
+
+                         文法                手持ちPart 5＋IIBC穴埋め
+
+                         易しいListening      VOA / IIBCアプリ
+
+                         TOEIC Listening   過去テストA＋IIBC公式
+
+                         易しいReading        VOA transcript
+
+
+
+
+                                             9
+                               欲しい能力                原則これだけ
+
+                               TOEIC Reading        過去テストA＋Part 5本
+
+                               解法説明                 Morite2等のYouTube
+
+                               最終測定                 過去テストB
+
+つまり、新しい参考書を探す時間はゼロでよいです。
+
+
+KGI・CSF・KPIと記録方法
+最終KGIは非常にシンプルです。
+
+
+KGI
+
+
+      Week 78に、これまで一度も解いていない「過去テストB」を時間制限付きで実施し、付属の
+      正規のスコア換算がある場合にTotal 700以上。
+
+
+可能ならListening/Readingの片側に極端に依存せず、
+
+
+      L 350前後以上
+      R 350前後以上
+
+
+を一つの理想像にします。ただし700点のL/R配分は公式に350/350である必要はありません。
+
+
+ETSのCEFR対応上、350/350なら両SectionともB1最低値275を超えますが、B2最低値L400/R385には届きま
+せん。したがって700点を「英語が完成した状態」と考えず、自立した中級受容技能への通過点と見るのが妥
+当です。 2
+
+
+CSF＝Critical Success Factorsは5つです。
+
+
+      CSF                      内容                            なぜ重要か
+
+      継続                       100分/週を落とさない                  78週間の累積量を守る
+
+      語彙・文法の自動化                考え込まず処理                       L/R双方の土台
+
+      Listening decoding       音→単語→意味                       「見れば分かる」を「聞けば分かる」へ
+
+      paraphrase処理             同じ語を探さない                      700帯に必要な情報処理
+
+      error-driven practice    ミス原因から次課題を選択                  少時間で弱点を潰す
+
+KPIは点数よりも、学習中に直接改善できる指標を重視します。
+
+
+        KPI                   Week 13   Week 26       Week 39    Week 52   Week 65   Week 78
+
+        学習時間                  ≥100分       ≥100            ≥100     ≥100      ≥100      ≥100
+
+        実施日                     ≥6日            ≥6          ≥6        ≥6        ≥6        ≥6
+
+        7日後単語再生率                 75%       80%            85%       85%       85%       85%
+
+
+
+
+                                                     10
+    KPI                   Week 13   Week 26    Week 39    Week 52   Week 65   Week 78
+
+    Part 2小セット               65%       75%         80%      80%+       85%       85%
+
+    Part 3/4小セット          55–60%       65%         70%       75%       80%       80%
+
+    Part 5小セット               70%       75%         80%       85%       85%       85%
+
+    Part 7小セット               60%       65%         70%       75%       80%       80%
+
+    同じ原因の再発            記録開始           <40%         <30%     <25%      <20%      <20%
+
+    Fresh Test B               —         —           —         —         —      700+
+
+これらの正答率は公式のTOEIC換算基準ではなく、学習管理用の内部KPIです。正答率から勝手に「○○点相
+当」と変換しないでください。
+
+
+もう一つ非常に重要なのがミス分類です。
+
+
+正解/不正解だけではなく、すべての間違いに次のタグを1個付けます。
+
+
+                   Code     原因
+
+                   V        Vocabulary：単語を知らなかった
+
+                   S        Sound：知っている単語なのに音で分からなかった
+
+                   G        Grammar：構文を誤解した
+
+                   P        Paraphrase：言い換えに気づかなかった
+
+                   A        Attention：途中で情報を落とした
+
+                   T        Time：時間切れ/焦り
+
+                   I        Inference：推論・目的を間違えた
+
+                   C        Careless：見落とし
+
+「今日は7問間違えた」ではなく、
+
+
+    V=2、S=3、P=1、C=1
+
+
+と記録します。
+
+
+翌週の学習配分は、この数字で決めます。
+
+
+たとえばSoundが最多ならListeningを増やし、Vocabularyなら単語を増やす。Timeが増えてきたら新しい単
+語学習を増やすのではなく時間制限付きReadingを増やします。
+
+
+Google Sheets等に作る記録表はこれで十分です。
+
+
+
+
+                                              11
+                                                                     最
+                                                                     大
+              実   新    7日                                                 再
+        分/                      L初                                   ミ
+ Week         施   規    後語              P2%      P3/4%   P5%    P7%        発    次週変更
+        週                       見%                                   ス
+              日   語    彙%                                                 率
+                                                                     原
+                                                                     因
+
+                                                                     V/
+    1   120   4    0       —     48     50         42     55    40        —    語彙+音
+                                                                     S
+
+    2   100   7   20       —     52     55         —      60    —    S    —    dictation
+
+    3   100   6   20       70    55     58         —      65    45   V    40   継続
+
+   …     …    …   …        …     …      …          …      …     …    …    …    …
+
+
+さらにListeningについて、
+
+
+「聞けなかった原因が何だったか」
+
+
+を毎週数えると非常に有効です。
+
+
+理想的な変化は、
+
+
+      初期：V/Sが多い
+      ↓
+      中期：P/Aが増える
+      ↓
+      後期：T/Cが主要になる
+
+
+です。
+
+
+これは「簡単な音そのものが分からない」状態から、「内容は理解できるが速度や細かい判断で落とす」状
+態へ移っていることを示します。
+
+
+週100分の標準スケジュールは固定します。
+
+
+                       曜日        時間    内容
+
+                       月        10分    単語retrieval＋発音
+
+                       火        10分    Listening micro-cycle
+
+                       水        10分    Part 5
+
+                       木        10分    Listening micro-cycle
+
+                       金        10分    Part 7
+
+                       土        20分    Listening精聴＋shadowing
+
+                       日        30分    mini-test＋error log＋復習
+
+                       計        100分
+
+
+
+
+                                          12
+単語は毎週15～25語程度で構いません。
+
+
+「1日100語見る」より、
+
+
+    20語を覚える
+    →翌日思い出す
+    →3日後
+    →7日後
+    →14日後
+
+
+の方を優先します。spacingとretrievalの研究がこの設計を支える根拠です。 17
+
+
+78週間の具体的ロードマップ
+開始日を2026年9月21日とすると、78週間はおおむね2028年3月19日までです。
+
+
+
+
+                            TOEIC約400 → 700 78週間
+
+       2026/09–12          2026/12–2027/03        2027/03–06         2027/06–09   2027/09–12   2027/12–2028/03
+
+
+
+
+       基礎再構築                Listening拡張              統合                 速度        TOEIC実戦化          最終統合
+
+
+       語彙・文法                  Part 2/3/4          paraphrase        Reading時間制限   Mixed sets      本番時間管理
+
+
+       音→語の認識                Part 7単文書                               原速一発理解        弱点修正        Week 78 Fresh Test
+                                             長めのListening/Reading                                      B
+
+
+
+
+Week 1–13：基礎再構築
+
+
+この期間はListening 40分、語彙・文法35分、Reading15分、分析10分程度です。
+
+
+                    Week         重点                                 週の成果物・KPI
+
+                       1         過去テストA診断                           L/R別結果、V/S/G/P/A/T/I/C分類
+
+                       2         単語帳開始＋Part 2                       新規15–20語、P2ミス分類
+
+                       3         品詞＋VOA Level 1                     Part5で名詞/動詞/形容詞/副詞を識別
+
+                       4         音声診断                               聞けない5–15秒を部分dictation
+
+                       5         動詞・時制・態                            Part5 10問＋音読
+
+                       6         Part 2間接応答                         疑問詞だけで判断しない練習
+
+                       7         Part 7短文書                          誰→誰、目的、日時を抽出
+
+                       8         前置詞・接続詞                            句/節の境界を見る
+
+
+
+
+                                                                       13
+            Week      重点                 週の成果物・KPI
+
+                 9    Part 3導入           問いを先に把握→音声1回
+
+                10    paraphrase         言い換え10組をerror logへ
+
+                11    shadowing基礎        意味確認後に10–20秒×反復
+
+                12    Part5 mixed        10問正答率70%目標
+
+                13    Checkpoint         P2≥65%、P5≥70%、語彙7日後≥75%
+
+Week 14–26：短文から会話・説明文へ
+
+
+Listening 40分、Reading25分、語彙・文法20分、分析15分程度へ移します。
+
+
+         Week    重点                     成果物・KPI
+
+           14    Part 3人物/場所            who/where/whyを1回で取る
+
+           15    Part 3目的               purpose問題を集中的に
+
+           16    Part 2否定・婉曲            literalな単語一致を避ける
+
+           17    Part 7 email           sender/receiver/purpose
+
+           18    VOA Level 1→2          transcriptなし初見理解を測定
+
+           19    Part 4 announcements   冒頭1–2文で状況判断
+
+           20    Part 5語法               間違えた語法のみ単語帳へ
+
+           21    Reading paraphrase     問題→本文の言い換え10組
+
+           22    Listening paraphrase   音声→選択肢言い換え10組
+
+           23    Part 7 notice/ad       scanning練習
+
+           24    Part 3長めセット            3問セットの情報保持
+
+           25    Mixed micro-test       P2/P3/P5/P7を各少量
+
+           26    Checkpoint             P2≥75%、P3/4≥65%、P5≥75%、P7≥65%
+
+
+Week 26で目標を大きく下回る場合、ここが最初の増量判断点です。
+
+
+2週連続で、
+
+
+    P2 <65%
+    Part5 <70%
+    7日語彙 <70%
+
+
+なら、Week 27–34だけ150分/週へ上げます。
+
+
+Week 27–39：単語一致から意味処理へ
+
+
+Listening35分、Reading35分、語彙15分、Part5等5分、分析10～15分を基本にします。
+
+
+
+
+                                           14
+        Week   重点                         成果物・KPI
+
+          27   過去テストA Part3再利用            初見時との改善を比較
+
+          28   Part7 single passage       根拠文に線を引く
+
+          29   Part4目的・話者                 situationを早期特定
+
+          30   語彙のchunk化                  単語20個をcollocation化
+
+          31   Part7 double導入             文書間の役割を区別
+
+          32   Listening memory           30–45秒の要点を日本語1文で再現
+
+          33   文構造                        主節/修飾を高速識別
+
+          34   VOA Level2                 transcript依存を減らす
+
+          35   Part3 inference            次の行動・理由を推論
+
+          36   Part7 inference            根拠＋推論を区別
+
+          37   Mixed 20問                  時間＋正答率を記録
+
+          38   弱点集中                       最多error codeだけを練習
+
+          39   Checkpoint                 L mixed≥70%、R mixed≥70%、語彙≥85%
+
+
+この段階から、同じ問題で正解することより、初めて見る類似問題で正解することを重視します。
+
+
+過去テストAを何度も解けば正答率は上がりますが、記憶による上昇も含まれます。そのため過去テストA再
+演習の正答率を「推定TOEICスコア」に変換しないでください。
+
+
+Week 40–52：Reading速度とListening一発理解
+
+
+ここからReading比重を上げます。
+
+
+            Week    重点                             成果物・KPI
+
+               40   Part 5速度                       10問の時間を記録
+
+               41   Part 7 single timed            正答率を保って短縮
+
+               42   Part 3 one-pass                replayなしで実施
+
+               43   Part 4 one-pass                replayなしで実施
+
+               44   double passage                 文書A/Bの対応
+
+               45   語彙弱点棚卸し                        未定着語だけに絞る
+
+               46   Part5 mixed                    85%へ接近
+
+               47   Part7 purpose/inference        言い換え根拠を記録
+
+               48   Listening detail               数字/日時/場所
+
+               49   longer set                     集中を数分維持
+
+
+
+
+                                              15
+           Week    重点                            成果物・KPI
+
+             50    Reading mixed                 Part5→6→7の切替
+
+             51    Error recycling               過去8週の再発問題
+
+             52    Checkpoint                    P3/4≥75%、P5≥85%、P7≥75%
+
+Week 52でReading正答率は上がっているが時間が改善していない場合、語彙を増やすより時間制限付き
+Readingを優先します。
+
+
+逆に速いが正答率が70%未満なら、スピードアップを一旦停止して精読へ戻します。
+
+
+Week 53–65：TOEIC実戦処理
+
+
+                   Week   重点                       成果物・KPI
+
+                     53   L mixed set              Part切替を練習
+
+                     54   R mixed set              Part5→7の配分
+
+                     55   Part2弱点                  間接応答/類似音
+
+                     56   Part7弱点                  inference/paraphrase
+
+                     57   Part3+4連続                集中持続
+
+                     58   Reading長セット              20～30分連続練習
+
+                     59   語彙総復習                    新規語より未定着語
+
+                     60   過去テストA L再利用              error type比較
+
+                     61   過去テストA R再利用              時間比較
+
+                     62   Listening 1.0x徹底         slowdownなしの測定
+
+                     63   Part7 multiple docs      複数資料統合
+
+                     64   Mixed mini mock          L/R両方
+
+                     65   Checkpoint               各主要Part 75～85%域
+
+
+この時期の目標は、「知らないことを減らす」から、
+
+
+    知っていることを時間内に出せる
+
+
+へ移します。
+
+
+Week 66–78：最終統合
+
+
+            Week    重点                   成果物・KPI
+
+              66    弱点順位決定               最大2領域だけ選択
+
+              67    弱点①集中                最多error codeを半減
+
+
+
+
+                                            16
+          Week   重点                    成果物・KPI
+
+            68   弱点②集中                 次点error codeを半減
+
+            69   Listening sustained   約20～30分連続
+
+            70   Reading sustained     30～45分連続
+
+            71   Part2/5高速化            基礎問題で迷わない
+
+            72   Part3/4実戦             一発理解＋先読み
+
+            73   Part7実戦               evidenceを素早く確認
+
+            74   Mixed rehearsal       時間配分確定
+
+            75   error log総復習          再発ミスだけ
+
+            76   軽い総合演習                新教材を増やさない
+
+            77   taper                 単語・短い音声中心、疲労を残さない
+
+            78   Fresh Test B          本番条件、KGI 700+
+
+Test BはWeek 78まで一度も見ないことを推奨します。
+
+
+無料教材だけという条件では、新鮮なフルサイズのTOEIC形式問題は非常に貴重だからです。IIBC公式サンプ
+ルは無料で使えますが、公式試験そのものと同じ200問のFresh Mockを何度も無料で確保できるわけではあ
+りません。IIBCは公式サイトで無料サンプル問題を公開しているので、途中の外部チェックにはこちらを使い
+ます。 18
+
+
+78週間の最大のマイルストーンだけ抽出するとこうなります。
+
+
+                 時点          状態
+
+                 Week 1      400点の内訳と弱点が分かる
+
+                 Week 13     基礎語彙・Part2・Part5が安定し始める
+
+                 Week 26     短い会話・説明・短文書を処理できる
+
+                 Week 39     paraphraseと推論が主要課題へ移る
+
+                 Week 52     正確さ＋時間が両立し始める
+
+                 Week 65     TOEIC形式で75～85%帯を目指す
+
+                 Week 78     Fresh Test Bで700以上
+
+
+停滞時の対策・10分の最大化・2年後の会話への接続
+最も重要なのは、停滞したときに教材を変えないことです。
+
+
+多くの場合、
+
+
+
+
+                                       17
+    スコアが伸びない
+    →新しいYouTubeを見る
+    →新しい単語帳を探す
+    →新しい勉強法を試す
+    →既存教材が中途半端になる
+
+
+という悪循環が起きます。
+
+
+本計画では、2回連続でCheckpoint KPIを下回ったら、次の順番で修正します。
+
+
+      状況                  やってはいけないこと       修正
+
+      語彙再生率<70%           新規語を増やす          新規語を半減、復習を倍
+
+      transcriptなら分かる     聞き流しを増やす         部分dictation＋音読
+
+      transcriptでも分からない   shadowing        語彙・文法へ戻る
+
+      Part2だけ弱い           Part3/4を大量演習     Part2を短時間反復
+
+      Part7正確だが遅い         全文精読を続ける         timed reading
+
+      Part7速いが誤答多い        さらに速く読む          evidence checking
+
+      同じミスを繰り返す           新問題を増やす          error log再演習
+
+      全部伸びない              方法を毎週変更          学習量を150～180分へ8週間増加
+
+増量する場合も、新しい教材は増やしません。
+
+
+100→150分なら、
+
+
+    Listening +20分
+    Reading +20分
+    error review +10分
+
+
+で十分です。
+
+
+10分しか取れない日の優先順位は次のようにします。
+
+
+時間がない日は、
+
+
+    YouTubeを見る10分
+
+
+ではなく、
+
+
+    3分 retrieval
+    4分問題
+    2分答え合わせ
+    1分error log
+
+
+にしてください。
+
+
+
+
+                                      18
+疲れている日は新規学習を捨てて、
+
+
+     昨日の単語
+     昨日の音声
+     昨日の誤答
+
+
+をやれば十分です。
+
+
+spacing/retrieval研究から考えても、復習日は「何も進んでいない日」ではありません。むしろ長期保持のた
+めの中心的な学習です。 17
+
+
+さらに、通勤・歩行中など画面が使いにくい時間は、
+
+
+     既に理解済みの音声を再生
+     →1文止める
+     →意味を思い出す
+     →小声でrepeat/shadow
+
+
+にすれば、机上の100分を消費せず英語接触量を増やせます。
+
+
+ただし「英語をBGMとして流すだけ」はKPIには数えません。学習時間として数えるのは、注意を向けて理
+解・想起・修正した時間だけにすることを勧めます。
+
+
+そして、元々の目標である2年後に「話せる」状態について非常に重要な点があります。
+
+
+TOEIC L&Rは公式にListening/Readingというreceptive skillsを測り、Speaking/Writingは別テストで
+productive skillsを測ります。したがって、700点を取っても自動的に話せるようになるわけではありませ
+ん。 2
+
+
+ただし、最初の18か月で、
+
+
+     語彙
+     文法
+     Listening decoding
+     chunk
+     sentence pattern
+
+
+を作っておけば、最後の6か月をSpeakingへ移行しやすくなります。
+
+
+そのためWeek 53以降から、Listening後の最後1分を、
+
+
+     音声を聞く → 見ずに英語で1文再現
+
+
+へ変えることを勧めます。
+
+
+そしてWeek 79～104、つまり1年半後から2年後の半年は、TOEIC維持を週60～90分程度に落とし、その代わ
+りSpeakingを毎日5～10分追加します。
+
+
+具体的には、
+
+
+
+
+                                      19
+      1分：今日の話題を決める
+      2分：知っている英語だけで話す
+      2分：言えなかった表現を確認
+      2分：もう一度話す
+      1分：録音を聞く
+
+
+という形です。
+
+
+TOEIC勉強中から単語を、
+
+
+      appointment
+
+
+ではなく、
+
+
+      make an appointment
+      I'd like to make an appointment.
+      Could we reschedule the appointment?
+
+
+のようにchunkで覚えておけば、このSpeaking移行がかなり楽になります。
+
+
+最終的には、あなたの2年間を
+
+
+
+        0–6か月                  6–12か月                  12–18か月          18–24か月
+      基礎語彙・文法                   意味処理                 TOEIC速度・精度   ListeningをSpeakingへ
+       音を認識               Listening / Reading          700を狙う        再話・録音・会話
+
+
+
+
+と考えるのが合理的です。
+
+
+700点はゴールというより、Speakingに本格移行するための土台です。
+
+
+最後に、この78週間の計画を成功させるために覚えておくべき式は一つだけです。
+
+
+      英語力向上 ≠ 教材数 × 勉強法の種類
+
+
+ではなく、
+
+
+      英語力向上 ≈ 継続時間 × 正しい難易度 × 想起 × フィードバック × 再実行
+
+
+です。
+
+
+IIBCのScore Descriptorが示しているように、400点帯から700点帯へ進むためには、簡単な語の一致だけか
+ら、paraphrase・目的・推論・情報接続へ処理を変えていかなければなりません。 3 spacing研究は「間
+隔を空けて戻る」ことを、retrieval研究は「見るより思い出す」ことを支持し、Extensive Reading研究は易
+しい大量入力を補助的に取り入れる合理性を与えます。 19 一方、TOEIC公式資料は実際に何を聞き・読み取
+れるようになる必要があるかを具体的に示しています。 20
+
+
+そのすべてを週100分という制約に落とし込むと、最適戦略は、
+
+
+
+
+                                                20
+少ない教材を、短く解き、深く復習し、時間を空けてもう一度解くこと
+
+
+になります。
+
+
+主要な一次・公式・学術資料
+
+
+     種類               資料                                               本計画で使った根拠
+
+     TOEIC公式          IIBC TOEIC L&R                                   試験構成・100問×2Section                           4
+
+
+     TOEIC公式          IIBC Score Descriptor                            点数帯ごとのListening/Reading能力                                 3
+
+
+     ETS              Mapping the TOEIC Tests on the CEFR              CEFR B1/B2最低目安                  2
+
+
+     Cambridge        Guided learning hours                            CEFR学習時間の目安                     1
+
+
+     IIBC無料           公式サンプル問題                                         TOEIC形式の無料練習                    11
+
+
+     IIBC無料           TOEIC公式アプリ                                       無料音声＋text             12
+
+
+     IIBC無料           穴埋めエクササイズ                                        毎週の語彙・文法                   13
+
+
+     学術               Cepeda et al., Distributed Practice              spaced practice        5
+
+
+                      Roediger & Karpicke, Test-Enhanced
+     学術                                                                retrieval/testing effect            6
+                      Learning
+
+                      Nakanishi, Meta-Analysis of Extensive
+     学術                                                                extensive reading研究統合                   21
+                      Reading
+
+                                                                       語彙coverageとListening comprehension
+     学術               van Zeeland & Schmitt
+                                                                         9
+
+
+     学術               Ericsson et al., Deliberate Practice             弱点特化＋feedback設計
+
+     無料英語             VOA Learning English                             段階的Listening/Reading＋script                           8
+
+
+     YouTube          Morite2 TOEIC全パート完全攻略                            TOEIC形式・戦略の日本語解説                                 14
+
+
+
+
+ 1    Guided learning hours – Cambridge English Support Site
+https://support.cambridgeenglish.org/hc/en-gb/articles/202838506-Guided-learning-hours
+
+ 2    Mapping the TOEIC Tests on the CEFR
+https://www.ets.org/pdfs/toeic/toeic-mapping-cefr-reference.pdf
+
+ 3    20   Score Descriptor Table｜TOEIC Listening & Reading Test｜IIBC Official English Site｜IIBC
+https://www.iibc-global.org/english/toeic/test/lr/guide05/guide05_01/score_descriptor.html
+
+ 4    18   TOEIC Listening & Reading Test｜〖公式〗TOEIC Program｜IIBC
+https://www.iibc-global.org/toeic/test/lr.html
+
+ 5    17   19   Distributed practice in verbal recall tasks: A review and ...
+https://pubmed.ncbi.nlm.nih.gov/16719566/?utm_source=chatgpt.com
+
+ 6    Test-Enhanced Learning
+https://www.jstor.org/stable/40064526?utm_source=chatgpt.com
+
+
+
+
+                                                             21
+ 7   (PDF) The effectiveness of ER on reading proficiency
+https://www.researchgate.net/publication/395523119_The_effectiveness_of_ER_on_reading_proficiency_A_meta-analysis?
+utm_source=chatgpt.com
+
+ 8   Lesson 1: Who Are You?
+https://learningenglish.voanews.com/a/6654462.html?utm_source=chatgpt.com
+
+ 9   Lexical Coverage in L1 and L2 Listening Comprehension
+https://academic.oup.com/applij/article/34/4/457/199564?utm_source=chatgpt.com
+
+10   21   A Meta-Analysis of Extensive Reading Research
+https://www.jstor.org/stable/43893735?utm_source=chatgpt.com
+
+11   〖公式〗サンプル問題｜TOEIC Listening & Reading Test｜〖公式〗TOEIC Program｜IIBC
+https://www.iibc-global.org/toeic/test/lr/about/format/sample01.html?hsLang=ja
+
+12   TOEIC公式スマートフォンアプリ｜スマホアプリ｜〖公式〗TOEIC Program｜IIBC
+https://www.iibc-global.org/toeic/support/app/01.html?hsLang=ja
+
+13   〖公式〗穴埋めエクササイズとは｜〖公式〗TOEIC Program｜IIBC
+https://www.iibc-global.org/toeic/support/exercise_pr.html?hsLang=ja
+
+14   【3時間で攻略】TOEIC全パート完全攻略講座
+https://www.youtube.com/watch?v=IMxY4Yq2i04&utm_source=chatgpt.com
+
+15   スコアが伸びない原因をざっと確認してみよう【TOEIC
+https://www.youtube.com/watch?v=B18npD-qAnY&utm_source=chatgpt.com
+
+16   【TOEICスコアを3日で上げる】リーディング攻略／ ...
+https://www.youtube.com/watch?v=KdvHTQPL5Tg&utm_source=chatgpt.com
+
+
+
+
+                                                          22
+
