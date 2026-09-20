@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { blocks, checkpoints, csfs, getBlockPlan, getWeekPlan, kgi, materials, missCodes, procedures, roadmapVersion, weekdayPlans } from './data/roadmap'
 import { addDays, blockForWeek, canRecordToday, dateKey, datesForWeek, daysBetween, distinctTrendWeeks, formatJapaneseDate, nextCheckpoint, weekPosition, weekdayFor } from './lib/date'
 import { aggregateWeek, dailyLogLine, percent, topMissCode, trendTableMarkdown } from './lib/metrics'
-import { emptyData, loadData, makeId, parseImport, saveData, serializeData, type AppData, type Mode, type StudyLog, type WeeklyMeasure } from './lib/storage'
+import { aggregateTodoDay, aggregateTodoWeek, combinedMinutes } from './lib/todo'
+import { emptyData, loadData, makeId, parseImport, saveData, serializeData, type AppData, type Assessment, type Mode, type StudyLog, type TodoTask, type WeeklyMeasure } from './lib/storage'
+import { addAssessment, addTodoTask as addTodoTaskData, appendGptExchange, appendReview } from './lib/state'
 
-type Tab = 'today' | 'records' | 'roadmap'
+type Tab = 'today' | 'todo' | 'records' | 'roadmap'
 const shortMenu = ['3分 retrieval', '4分問題', '2分答え合わせ', '1分error log']
 const tiredMenu = ['昨日の単語', '昨日の音声', '昨日の誤答']
 
@@ -25,8 +27,19 @@ function App() {
   const viewWeek = selectedWeek ?? activeWeek
   const viewDates = datesForWeek(data.settings.startDate, viewWeek)
 
-  const persist = (next: AppData) => { setData(next); saveData(next) }
-  const patchData = (change: (current: AppData) => AppData) => persist(change(data))
+  const persist = (next: AppData | ((current: AppData) => AppData)) => {
+    if (typeof next === 'function') {
+      setData((current) => {
+        const updated = next(current)
+        saveData(updated)
+        return updated
+      })
+      return
+    }
+    setData(next)
+    saveData(next)
+  }
+  const patchData = (change: (current: AppData) => AppData) => persist(change)
   const logFor = (key: string, week = viewWeek): StudyLog => {
     const saved = data.logs[key]
     if (saved) return saved
@@ -47,6 +60,32 @@ function App() {
   const changeMinutes = (amount: number) => { if (canRecordToday(position.status)) updateLog(today, { actualMinutes: Math.max(0, Math.min(300, todayLog.actualMinutes + amount)) }) }
   const toggleDone = () => { if (canRecordToday(position.status)) updateLog(today, { done: !todayLog.done, actualMinutes: todayLog.actualMinutes || todayLog.plannedMinutes }) }
 
+  const updateTodoEntry = (key: string, taskId: string, change: Partial<{ done: boolean; actualMinutes: number }>) => patchData((current) => {
+    const task = current.todoTasks.find((item) => item.id === taskId)
+    const existing = current.todoLogs[key]?.[taskId] ?? { done: false, actualMinutes: 0, plannedMinutes: task?.plannedMinutes ?? 0 }
+    return { ...current, todoLogs: { ...current.todoLogs, [key]: { ...(current.todoLogs[key] ?? {}), [taskId]: { ...existing, ...change, actualMinutes: Math.max(0, Math.min(300, change.actualMinutes ?? existing.actualMinutes)) } } } }
+  })
+  const toggleTodoDone = (key: string, taskId: string) => patchData((current) => {
+    const task = current.todoTasks.find((item) => item.id === taskId)
+    const existing = current.todoLogs[key]?.[taskId] ?? { done: false, actualMinutes: 0, plannedMinutes: task?.plannedMinutes ?? 0 }
+    const done = !existing.done
+    return { ...current, todoLogs: { ...current.todoLogs, [key]: { ...(current.todoLogs[key] ?? {}), [taskId]: { ...existing, done, actualMinutes: done && existing.actualMinutes === 0 ? existing.plannedMinutes : existing.actualMinutes } } } }
+  })
+  const changeTodoMinutes = (key: string, taskId: string, amount: number) => {
+    const existing = data.todoLogs[key]?.[taskId]
+    updateTodoEntry(key, taskId, { actualMinutes: Math.max(0, Math.min(300, (existing?.actualMinutes ?? 0) + amount)), done: existing?.done ?? false })
+  }
+  const addTodoTask = (name: string, plannedMinutes: number) => patchData((current) => addTodoTaskData(current, name, plannedMinutes))
+  const updateTodoTask = (id: string, change: Partial<Pick<TodoTask, 'name' | 'plannedMinutes'>>) => patchData((current) => ({ ...current, todoTasks: current.todoTasks.map((task) => task.id === id ? { ...task, ...change, name: change.name === undefined ? task.name : change.name, plannedMinutes: change.plannedMinutes === undefined ? task.plannedMinutes : Math.max(0, change.plannedMinutes) } : task) }))
+  const archiveTodoTask = (id: string) => patchData((current) => ({ ...current, todoTasks: current.todoTasks.map((task) => task.id === id ? { ...task, archived: true } : task) }))
+  const reorderTodoTask = (id: string, direction: -1 | 1) => patchData((current) => {
+    const visible = current.todoTasks.filter((task) => !task.archived).sort((a, b) => a.order - b.order)
+    const index = visible.findIndex((task) => task.id === id)
+    const other = visible[index + direction]
+    if (index < 0 || !other) return current
+    return { ...current, todoTasks: current.todoTasks.map((task) => task.id === id ? { ...task, order: other.order } : task.id === other.id ? { ...task, order: visible[index].order } : task) }
+  })
+
   const generateConsultation = () => {
     const measure = data.weeklyMeasures[String(viewWeek)]
     const lastFour = distinctTrendWeeks(viewWeek).map((week) => {
@@ -62,7 +101,7 @@ function App() {
     const markdown = `# 英語ロードマップ相談\n\n## 現在地\n- Week ${viewWeek}/78\n- ブロック${currentBlock.block} ${currentBlock.name}\n- 重点: ${getWeekPlan(viewWeek).focus}\n- 成果物・KPI: ${getWeekPlan(viewWeek).deliverable}\n\n## 今週の計画と実績\n- ${summary.actualMinutes}/${summary.plannedMinutes}分（計画量達成率 ${summary.rate}%）\n- 実施日 ${summary.doneDays}/6\n\n## 日別ログ\n${daily}\n\n## 週次測定\n${rates}\n- 新規語数: ${measure?.newWords ?? '—'}\n- 同じ原因の再発率: ${measure?.recurrenceRate ?? '—'}%\n\n## ミスコード\n${Object.entries(measure?.missCounts ?? {}).map(([code, count]) => `${code}=${count}`).join(', ') || '未入力'}\n\n## KPI（次のCheckpoint Week ${checkpoint}）\n- 学習時間 ${summary.actualMinutes}/${target.studyMinutes}\n- 実施日 ${summary.doneDays}/${target.studyDays}\n- 7日後単語 ${measure ? percent(measure.vocabulary7d) ?? '—' : '—'}% / 目標 ${target.vocabulary7d}\n- P2 ${measure ? percent(measure.p2) ?? '—' : '—'}% / 目標 ${target.part2}\n- P3/4 ${measure ? percent(measure.p34) ?? '—' : '—'}% / 目標 ${target.part34}\n- P5 ${measure ? percent(measure.p5) ?? '—' : '—'}% / 目標 ${target.part5}\n- P7 ${measure ? percent(measure.p7) ?? '—' : '—'}% / 目標 ${target.part7}\n- 再発率 ${measure?.recurrenceRate ?? '—'}% / 目標 ${target.recurrence}\n\n## 直近4週トレンド\n${trendTableMarkdown(lastFour)}\n\n## 測定・本人メモ\n${measure?.memo || '未入力'}\n\n## テスト記録\n${data.assessments.map((item) => `- ${item.name} / ${item.date} / L${item.listening ?? '—'} R${item.reading ?? '—'} Total${item.total ?? '—'}`).join('\n') || '未入力'}\n\nこのPDFロードマップ（78週・週100分）を前提に、来週の学習計画を調整してください。KGI（Week 78 過去テストBで700+）とPDFのルールは変更せず、必要なら配分のみ調整してください。回答の最後に『来週の変更：』として3行以内でまとめてください。`
     const consultationMarkdown = markdown
     const exchange = { id: makeId(), week: viewWeek, createdAt: new Date().toISOString(), prompt: consultationMarkdown }
-    patchData((current) => ({ ...current, gptExchanges: [...current.gptExchanges, exchange] }))
+    patchData((current) => appendGptExchange(current, exchange))
     setExchangeId(exchange.id); setGptPreview(consultationMarkdown); setReplyDraft('')
   }
 
@@ -76,16 +115,22 @@ function App() {
   }
   const saveReply = () => {
     if (!replyDraft.trim() || !exchangeId) return
-    patchData((current) => ({ ...current, reviews: { ...current.reviews, [String(viewWeek)]: [...(current.reviews[String(viewWeek)] ?? []), replyDraft.trim()] }, gptExchanges: current.gptExchanges.map((item) => item.id === exchangeId ? { ...item, reply: replyDraft.trim() } : item) }))
+    patchData((current) => {
+      const withReview = appendReview(current, viewWeek, replyDraft.trim())
+      return { ...withReview, gptExchanges: withReview.gptExchanges.map((item) => item.id === exchangeId ? { ...item, reply: replyDraft.trim() } : item) }
+    })
     setReplyDraft('')
   }
 
-  const content = showSettings ? <Settings data={data} persist={persist} /> : tab === 'today' ? <TodayScreen {...{ data, position, today, todayLog, currentBlock, checkpoint, summary, viewWeek, setMode, changeMinutes, toggleDone, updateLog, setTab, setSelectedWeek }} /> : tab === 'records' ? <RecordsScreen {...{ data, viewWeek, viewDates, summary, target, measure, updateMeasure, updatePair, changeMiss, setSelectedWeek, generateConsultation, gptPreview, copyText, replyDraft, setReplyDraft, saveReply, setTab, onAddAssessment: (item) => patchData((current) => ({ ...current, assessments: [...current.assessments, item] })) }} /> : <RoadmapScreen activeWeek={activeWeek} />
+  const todoDates = Array.from({ length: 7 }, (_, index) => addDays(today, index - ((['日', '月', '火', '水', '木', '金', '土'] as const).indexOf(weekdayFor(today)) + 6) % 7))
+  const todoDay = aggregateTodoDay(data.todoTasks, data.todoLogs[today])
+  const todoWeek = aggregateTodoWeek(todoDates, data.todoLogs, data.todoTasks)
+  const content = showSettings ? <Settings data={data} persist={persist} /> : tab === 'today' ? <TodayScreen {...{ data, position, today, todayLog, currentBlock, checkpoint, summary, viewWeek, setMode, changeMinutes, toggleDone, updateLog, setTab, setSelectedWeek }} /> : tab === 'todo' ? <TodoScreen {...{ data, today, todoDay, todoWeek, toggleTodoDone, changeTodoMinutes, addTodoTask, updateTodoTask, archiveTodoTask, reorderTodoTask }} /> : tab === 'records' ? <RecordsScreen {...{ data, viewWeek, viewDates, summary, target, measure, updateMeasure, updatePair, changeMiss, setSelectedWeek, generateConsultation, gptPreview, copyText, replyDraft, setReplyDraft, saveReply, setTab, onAddAssessment: (item) => patchData((current) => addAssessment(current, item)) }} /> : <RoadmapScreen activeWeek={activeWeek} />
 
   return <div className="app-shell">
     <header className="app-header"><div><p className="eyebrow">TOEIC 400 → 700</p><h1>英語ロードマップ</h1></div><button className="icon-button" aria-label="設定" onClick={() => setShowSettings((value) => !value)}>⚙</button></header>
     <main>{content}</main>
-    {!showSettings && <nav className="tab-bar"><button className={tab === 'today' ? 'active' : ''} onClick={() => setTab('today')}>今日</button><button className={tab === 'records' ? 'active' : ''} onClick={() => setTab('records')}>週・記録</button><button className={tab === 'roadmap' ? 'active' : ''} onClick={() => setTab('roadmap')}>ロードマップ</button></nav>}
+    {!showSettings && <nav className="tab-bar"><button className={tab === 'today' ? 'active' : ''} onClick={() => setTab('today')}>今日</button><button className={tab === 'todo' ? 'active' : ''} onClick={() => setTab('todo')}>ToDo</button><button className={tab === 'records' ? 'active' : ''} onClick={() => setTab('records')}>週・記録</button><button className={tab === 'roadmap' ? 'active' : ''} onClick={() => setTab('roadmap')}>ロードマップ</button></nav>}
   </div>
 }
 
@@ -106,7 +151,23 @@ function TodayScreen(props: { data: AppData; position: ReturnType<typeof weekPos
   </div>
 }
 
-function RecordsScreen(props: { data: AppData; viewWeek: number; viewDates: string[]; summary: ReturnType<typeof aggregateWeek>; target: typeof checkpoints[number]; measure: WeeklyMeasure; updateMeasure: (change: Partial<WeeklyMeasure>) => void; updatePair: (field: 'p2' | 'p34' | 'p5' | 'p7' | 'vocabulary7d', key: 'correct' | 'total', value: number) => void; changeMiss: (code: string, amount: number) => void; setSelectedWeek: (week: number) => void; generateConsultation: () => void; gptPreview: string; copyText: (value: string) => Promise<void>; replyDraft: string; setReplyDraft: (value: string) => void; saveReply: () => void; setTab: (tab: Tab) => void; onAddAssessment: (item: { id: string; name: string; date: string; listening?: number; reading?: number; total?: number }) => void }) {
+function TodoScreen(props: { data: AppData; today: string; todoDay: ReturnType<typeof aggregateTodoDay>; todoWeek: ReturnType<typeof aggregateTodoWeek>; toggleTodoDone: (key: string, taskId: string) => void; changeTodoMinutes: (key: string, taskId: string, amount: number) => void; addTodoTask: (name: string, plannedMinutes: number) => void; updateTodoTask: (id: string, change: Partial<Pick<TodoTask, 'name' | 'plannedMinutes'>>) => void; archiveTodoTask: (id: string) => void; reorderTodoTask: (id: string, direction: -1 | 1) => void }) {
+  const { data, today, todoDay, todoWeek, toggleTodoDone, changeTodoMinutes, addTodoTask, updateTodoTask, archiveTodoTask, reorderTodoTask } = props
+  const [editing, setEditing] = useState(false)
+  const [newName, setNewName] = useState('')
+  const [newMinutes, setNewMinutes] = useState('30')
+  const tasks = data.todoTasks.filter((task) => !task.archived).sort((a, b) => a.order - b.order)
+  const englishTodoTotal = combinedMinutes(data.logs[today], todoDay)
+  const add = () => { if (!newName.trim()) return; addTodoTask(newName, Number(newMinutes) || 0); setNewName(''); setNewMinutes('30') }
+  return <div className="stack">
+    <section className="hero-card"><div className="hero-orbit">毎日の固定タスク</div><h2>今日のToDo</h2><p>{formatJapaneseDate(today)}</p></section>
+    <section className="card"><div className="section-heading"><h2>ToDo 実績/予定 分</h2><span>{todoDay.actualMinutes}/{todoDay.plannedMinutes}分</span></div><div className="stat-row"><span>英語＋ToDo 合計 実績<strong>{englishTodoTotal}分</strong></span><span>完了 <strong>{todoDay.doneCount}/{todoDay.totalCount}</strong></span></div><hr className="soft-rule" /><div className="section-heading"><h2>今週のToDo合計</h2><span>{todoWeek.actualMinutes}/{todoWeek.plannedMinutes}分</span></div><div className="stat-row"><span>実施日数 <strong>{todoWeek.doneDays}/7日</strong></span></div></section>
+    <section className="card"><div className="section-heading"><div><p className="eyebrow">固定リスト</p><h2>今日のタスク</h2></div><button className="small-button" onClick={() => setEditing((value) => !value)}>{editing ? '編集を閉じる' : '編集モード'}</button></div>{tasks.length === 0 && <p className="empty-state">まだToDoがありません。「編集モード」から、毎日行うタスクを追加できます。</p>}{tasks.map((task, index) => { const entry = data.todoLogs[today]?.[task.id] ?? { done: false, actualMinutes: 0, plannedMinutes: task.plannedMinutes }; return <div className="todo-row" key={task.id}><div className="todo-main">{editing ? <input aria-label="ToDo名" value={task.name} onChange={(event) => updateTodoTask(task.id, { name: event.target.value })} /> : <strong>{task.name}</strong>}<span>予定{editing ? <input className="inline-number" aria-label="予定分" type="number" min="0" value={task.plannedMinutes} onChange={(event) => updateTodoTask(task.id, { plannedMinutes: Number(event.target.value) })} /> : `${task.plannedMinutes}分`}</span></div><div className="todo-actions"><button className={`todo-done-button ${entry.done ? 'done' : ''}`} onClick={() => toggleTodoDone(today, task.id)}>{entry.done ? '取り消し' : '完了'}</button><div className="minute-row todo-minute-row"><button onClick={() => changeTodoMinutes(today, task.id, -5)} aria-label={`${task.name}の5分減らす`}>−5</button><strong>{entry.actualMinutes}分</strong><button onClick={() => changeTodoMinutes(today, task.id, 5)} aria-label={`${task.name}の5分増やす`}>＋5</button></div></div>{editing && <div className="todo-edit-actions"><button className="small-button" disabled={index === 0} onClick={() => reorderTodoTask(task.id, -1)}>上</button><button className="small-button" disabled={index === tasks.length - 1} onClick={() => reorderTodoTask(task.id, 1)}>下</button><button className="danger-button small-button" onClick={() => { if (window.confirm(`「${task.name}」を削除しますか？過去の記録は残ります。`)) archiveTodoTask(task.id) }}>削除</button></div>}</div> })}</section>
+    {editing && <section className="card"><h2>ToDoを追加</h2><label>タスク名<input value={newName} onChange={(event) => setNewName(event.target.value)} placeholder="例：散歩" /></label><label>予定分<input type="number" min="0" value={newMinutes} onChange={(event) => setNewMinutes(event.target.value)} /></label><button className="primary-button" onClick={add}>追加する</button><p className="muted">削除したタスクは過去の記録を保ったまま非表示になります。</p></section>}
+  </div>
+}
+
+function RecordsScreen(props: { data: AppData; viewWeek: number; viewDates: string[]; summary: ReturnType<typeof aggregateWeek>; target: typeof checkpoints[number]; measure: WeeklyMeasure; updateMeasure: (change: Partial<WeeklyMeasure>) => void; updatePair: (field: 'p2' | 'p34' | 'p5' | 'p7' | 'vocabulary7d', key: 'correct' | 'total', value: number) => void; changeMiss: (code: string, amount: number) => void; setSelectedWeek: (week: number) => void; generateConsultation: () => void; gptPreview: string; copyText: (value: string) => Promise<void>; replyDraft: string; setReplyDraft: (value: string) => void; saveReply: () => void; setTab: (tab: Tab) => void; onAddAssessment: (item: Omit<Assessment, 'id'>) => void }) {
   const { data, viewWeek, viewDates, summary, target, measure, updateMeasure, updatePair, changeMiss, setSelectedWeek, generateConsultation, gptPreview, copyText, replyDraft, setReplyDraft, saveReply } = props
   const days = viewDates.map((key) => ({ key, log: data.logs[key] }))
   const lastWeeks = Array.from({ length: 78 }, (_, index) => index + 1).reverse()
@@ -121,7 +182,7 @@ function RecordsScreen(props: { data: AppData; viewWeek: number; viewDates: stri
 
 function Pair({ label, value, onChange }: { label: string; value?: { correct: number; total: number }; onChange: (key: 'correct' | 'total', value: number) => void }) { return <div className="pair"><strong>{label}</strong><label>正解<input type="number" min="0" value={value?.correct ?? ''} onChange={(event) => onChange('correct', Number(event.target.value))} /></label><label>全体<input type="number" min="0" value={value?.total ?? ''} onChange={(event) => onChange('total', Number(event.target.value))} /></label><span>{value ? `${percent(value) ?? 0}%` : '—'}</span></div> }
 function KpiRow({ label, value, target, ok }: { label: string; value: string; target: string; ok?: boolean }) { return <div className="kpi-row"><span>{ok === undefined ? '○' : ok ? '✓' : '△'}</span><strong>{label}</strong><em>{value}</em><small>目標 {target}</small></div> }
-function AssessmentForm({ data, onSave }: { data: AppData; onSave: (item: { id: string; name: string; date: string; listening?: number; reading?: number; total?: number }) => void }) { const [form, setForm] = useState({ name: '過去テストA', date: dateKey(), listening: '', reading: '', total: '' }); const save = () => { onSave({ id: makeId(), name: form.name, date: form.date, listening: Number(form.listening) || undefined, reading: Number(form.reading) || undefined, total: Number(form.total) || undefined }); setForm({ ...form, listening: '', reading: '', total: '' }) }; return <><div className="assessment-form"><select value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })}><option>過去テストA</option><option>IIBCサンプル</option><option>過去テストB</option></select><input type="date" value={form.date} onChange={(event) => setForm({ ...form, date: event.target.value })} /><input inputMode="numeric" placeholder="L" value={form.listening} onChange={(event) => setForm({ ...form, listening: event.target.value })} /><input inputMode="numeric" placeholder="R" value={form.reading} onChange={(event) => setForm({ ...form, reading: event.target.value })} /><input inputMode="numeric" placeholder="Total" value={form.total} onChange={(event) => setForm({ ...form, total: event.target.value })} /><button className="small-button" onClick={save}>追加</button></div>{data.assessments.map((item) => <div className="assessment-row" key={item.id}><span>{item.name}</span><span>{item.date}</span><strong>L{item.listening ?? '—'} / R{item.reading ?? '—'} / T{item.total ?? '—'}</strong></div>)}</> }
+function AssessmentForm({ data, onSave }: { data: AppData; onSave: (item: Omit<Assessment, 'id'>) => void }) { const [form, setForm] = useState({ name: '過去テストA', date: dateKey(), listening: '', reading: '', total: '' }); const save = () => { onSave({ name: form.name, date: form.date, listening: Number(form.listening) || undefined, reading: Number(form.reading) || undefined, total: Number(form.total) || undefined }); setForm({ ...form, listening: '', reading: '', total: '' }) }; return <><div className="assessment-form"><select value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })}><option>過去テストA</option><option>IIBCサンプル</option><option>過去テストB</option></select><input type="date" value={form.date} onChange={(event) => setForm({ ...form, date: event.target.value })} /><input inputMode="numeric" placeholder="L" value={form.listening} onChange={(event) => setForm({ ...form, listening: event.target.value })} /><input inputMode="numeric" placeholder="R" value={form.reading} onChange={(event) => setForm({ ...form, reading: event.target.value })} /><input inputMode="numeric" placeholder="Total" value={form.total} onChange={(event) => setForm({ ...form, total: event.target.value })} /><button className="small-button" onClick={save}>追加</button></div>{data.assessments.map((item) => <div className="assessment-row" key={item.id}><span>{item.name}</span><span>{item.date}</span><strong>L{item.listening ?? '—'} / R{item.reading ?? '—'} / T{item.total ?? '—'}</strong></div>)}</> }
 
 function RoadmapScreen({ activeWeek }: { activeWeek: number }) { const [open, setOpen] = useState(blockForWeek(activeWeek)); return <div className="stack"><section className="card intro-card"><p className="eyebrow">78週間の具体的ロードマップ</p><h2>少ない教材を、短く解き、深く復習する</h2><p>{kgi}</p></section>{blocks.map((block) => <section className={`card block-card ${block.block === open ? 'open' : ''}`} key={block.block}><button className="block-toggle" onClick={() => setOpen(open === block.block ? 0 : block.block)}><span><b>ブロック{block.block}</b><strong>{block.name}</strong></span><span>W{block.weeks[0]}–{block.weeks[1]} {open === block.block ? '⌃' : '⌄'}</span></button>{open === block.block && <div className="block-detail"><div className="allocation">L {block.allocation.listening}% ・ R {block.allocation.reading}% ・ 語彙文法 {block.allocation.vocabularyGrammar}% ・ 分析 {block.allocation.analysis}%</div>{Array.from({ length: 13 }, (_, index) => block.weeks[0] + index).map((week) => { const plan = getWeekPlan(week); const checkpoint = checkpoints.find((item) => item.week === week); return <div className={`roadmap-week ${week === activeWeek ? 'current' : ''} ${week < activeWeek ? 'past' : ''}`} key={week}><div><b>W{week}</b><strong>{plan.focus}</strong></div><p>{plan.deliverable}</p>{checkpoint && <span className="checkpoint">Checkpoint</span>}</div> })}</div>}</section>)}<section className="card"><details><summary>KGI / CSF</summary><h3>KGI</h3><p>{kgi}</p><h3>CSF</h3>{csfs.map((item) => <p key={item}>・{item}</p>)}</details><details><summary>教材リスト</summary>{materials.map((item) => <p key={item}>・{item}</p>)}</details></section></div> }
 

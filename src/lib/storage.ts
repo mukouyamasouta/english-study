@@ -30,6 +30,9 @@ export type WeeklyMeasure = {
 
 export type Assessment = { id: string; name: string; date: string; listening?: number; reading?: number; total?: number }
 export type GptExchange = { id: string; week: number; createdAt: string; prompt: string; reply?: string }
+export type TodoTask = { id: string; name: string; plannedMinutes: number; order: number; archived: boolean }
+export type TodoLogEntry = { done: boolean; actualMinutes: number; plannedMinutes: number }
+export type TodoLogs = Record<string, Record<string, TodoLogEntry>>
 export type AppData = {
   schemaVersion: 1
   settings: { startDate: string; lastBackupAt?: string }
@@ -39,10 +42,12 @@ export type AppData = {
   assessments: Assessment[]
   reviews: Record<string, string[]>
   gptExchanges: GptExchange[]
+  todoTasks: TodoTask[]
+  todoLogs: TodoLogs
 }
 
 export function emptyData(startDate = '2026-09-21'): AppData {
-  return { schemaVersion: 1, settings: { startDate }, logs: {}, dayOverrides: {}, weeklyMeasures: {}, assessments: [], reviews: {}, gptExchanges: [] }
+  return { schemaVersion: 1, settings: { startDate }, logs: {}, dayOverrides: {}, weeklyMeasures: {}, assessments: [], reviews: {}, gptExchanges: [], todoTasks: [], todoLogs: {} }
 }
 
 export function loadData(): AppData {
@@ -57,6 +62,7 @@ export function loadData(): AppData {
       settings: { ...emptyData().settings, ...(parsed.settings ?? {}) },
       logs: parsed.logs ?? {}, dayOverrides: parsed.dayOverrides ?? {}, weeklyMeasures: parsed.weeklyMeasures ?? {},
       assessments: parsed.assessments ?? [], reviews: parsed.reviews ?? {}, gptExchanges: parsed.gptExchanges ?? [],
+      todoTasks: parsed.todoTasks ?? [], todoLogs: parsed.todoLogs ?? {},
     }
   } catch {
     return emptyData()
@@ -73,7 +79,7 @@ export function parseImport(text: string): AppData | null {
   try {
     const parsed = JSON.parse(text) as Partial<AppData>
     if (parsed.schemaVersion !== 1 || !parsed.settings || typeof parsed.settings.startDate !== 'string' || typeof parsed.logs !== 'object') return null
-    return { ...emptyData(), ...parsed, settings: { ...emptyData().settings, ...parsed.settings }, logs: parsed.logs ?? {}, dayOverrides: parsed.dayOverrides ?? {}, weeklyMeasures: parsed.weeklyMeasures ?? {}, assessments: parsed.assessments ?? [], reviews: parsed.reviews ?? {}, gptExchanges: parsed.gptExchanges ?? [] }
+    return { ...emptyData(), ...parsed, settings: { ...emptyData().settings, ...parsed.settings }, logs: parsed.logs ?? {}, dayOverrides: parsed.dayOverrides ?? {}, weeklyMeasures: parsed.weeklyMeasures ?? {}, assessments: parsed.assessments ?? [], reviews: parsed.reviews ?? {}, gptExchanges: parsed.gptExchanges ?? [], todoTasks: parsed.todoTasks ?? [], todoLogs: parsed.todoLogs ?? {} }
   } catch { return null }
 }
 
